@@ -60,17 +60,14 @@ router.patch('/:id', (req, res, next) => {
         res.end();
     });
 });
-/*
+
 router.delete('/:id', (req, res, next) => {
-
     DB.run('DELETE FROM BOTTLES WHERE ID = ?', [req.params.id], (err) => {
-
         if (err) {
             return next(err);
         }
         return res.end();
     });
 });
-*/
 
 module.exports.router = router;
