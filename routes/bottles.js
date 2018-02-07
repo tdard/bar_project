@@ -27,7 +27,7 @@ router.get('/:id', (req, res, next) => {
         return res.json(data);
     });
 });
-/*
+
 router.post('/', Celebrate.celebrate(
     {
         body: Joi.object().keys({
@@ -40,8 +40,9 @@ router.post('/', Celebrate.celebrate(
     ),
     (req, res, next) => {
 
-        console.log('INSERT new bottle ' + req.body.title);
-        DB.run('INSERT INTO BOTTLES (TITLE, CONTENT) VALUES (?, ?)', [req.body.title, req.body.content], (err) => {
+        console.log('INSERT new bottle ' + req.body.brand); //les clés du json seront en minuscule !
+        DB.run('INSERT INTO BOTTLES (BRAND, PRICE, VOLUME, NUMBER) VALUES (?, ?, ?, ?)',
+            [req.body.brand, req.body.price, req.body.volume, req.body.number], (err) => {
 
             if (err) {
                 return next(err);
@@ -50,7 +51,7 @@ router.post('/', Celebrate.celebrate(
             res.end();
         });
     });
-
+/*
 router.patch('/:id', (req, res, next) => {
 
     DB.run('UPDATE BOTTLES SET TITLE=?, CONTENT=? WHERE ID = ?', [req.body.title, req.body.content, req.params.id], (err) =>{
