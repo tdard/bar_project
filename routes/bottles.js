@@ -51,18 +51,16 @@ router.post('/', Celebrate.celebrate(
             res.end();
         });
     });
-/*
+
 router.patch('/:id', (req, res, next) => {
-
-    DB.run('UPDATE BOTTLES SET TITLE=?, CONTENT=? WHERE ID = ?', [req.body.title, req.body.content, req.params.id], (err) =>{
-
+    DB.run('UPDATE BOTTLES SET NUMBER=? WHERE ID = ?', [req.body.number, req.params.id], (err) =>{
         if (err) {
             return next(err);
         }
         res.end();
     });
 });
-
+/*
 router.delete('/:id', (req, res, next) => {
 
     DB.run('DELETE FROM BOTTLES WHERE ID = ?', [req.params.id], (err) => {
